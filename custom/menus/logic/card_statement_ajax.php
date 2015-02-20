@@ -23,7 +23,7 @@
     $isNext = filter_input(INPUT_POST, 'isNext');
     
     if($userid == 1){
-        $transno = $isNext ? $transno + 1 : $transno - 1;
+        $transno = $isNext == "true" ? $transno + 1 : $transno - 1;
         $query = "SELECT * FROM cardstatement WHERE transno = $transno";
     }else{
         
