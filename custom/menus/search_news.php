@@ -6,11 +6,11 @@
         <!-- /.col-lg-12 -->
     </div>
     <!-- /.row -->
-    
-     <div class="panel panel panel-default">
-         <div class="panel-heading">
-             <i class="fa fa-newspaper-o fa-fw"></i>
-             List of News</div>
+
+    <div class="panel panel panel-default">
+        <div class="panel-heading">
+            <i class="fa fa-newspaper-o fa-fw"></i>
+            List of News</div>
         <!-- /.panel-heading -->
         <div class="panel-body">
             <div class="row">
@@ -23,7 +23,7 @@
                             <option value = "Sanook">Sanook Football News</option>
                             <option value = "Blognone">Blognone IT News</option>
                             <option value = "Android">Android Central</option>
-                            
+
                         </select>
                     </form>
                     <br>

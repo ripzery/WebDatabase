@@ -1,16 +1,16 @@
 <?php
-    require_once('../includes/config.inc.php');
+require_once('../includes/config.inc.php');
 
-    session_start();
-    
-    $userid = $_SESSION['uid'];
-    
-    $link = mysqli_connect(DB_HOSTNAME, DB_USERNAME, DB_PASSWORD) or die("could not connect to host.");
-    mysqli_select_db($link, DB_DATABASE)  or die("could not find db.");
+session_start();
 
-    $query = $userid == 1 ? "SELECT * FROM cardinfo" : "SELECT * FROM cardinfo where uid = $userid";
+$userid = $_SESSION['uid'];
 
-    $result = mysqli_query($link, $query) or die("Data not found");
+$link = mysqli_connect(DB_HOSTNAME, DB_USERNAME, DB_PASSWORD) or die("could not connect to host.");
+mysqli_select_db($link, DB_DATABASE) or die("could not find db.");
+
+$query = $userid == 1 ? "SELECT * FROM cardinfo" : "SELECT * FROM cardinfo where uid = $userid";
+
+$result = mysqli_query($link, $query) or die("Data not found");
 ?>
 <div class="row">
     <div class="col-lg-12">
@@ -41,17 +41,17 @@
                             </tr>
                         </thead>
                         <tbody>
-                             <?php
-                                while($row = mysqli_fetch_array($result)){
-                            ?>
-                            <tr>
-                                <td><?php echo $row['name'];?></td>
-                                <td><?php echo $row['number'];?></td>
-                                <td><?php echo $row['issuer'];?></td>
-                                <td><?php echo $row['exp'];?></td>
-                                <td><?php echo $row['limit'];?></td>
-                                <td><?php echo $row['currency'];?></td>
-                            </tr>
+                            <?php
+                            while ($row = mysqli_fetch_array($result)) {
+                                ?>
+                                <tr>
+                                    <td><?php echo $row['name']; ?></td>
+                                    <td><?php echo $row['number']; ?></td>
+                                    <td><?php echo $row['issuer']; ?></td>
+                                    <td><?php echo $row['exp']; ?></td>
+                                    <td><?php echo $row['limit']; ?></td>
+                                    <td><?php echo $row['currency']; ?></td>
+                                </tr>
                             <?php } ?>
 
                         </tbody>
