@@ -29,7 +29,7 @@ if ($isNext != null) {
     } else {
         $query = $isNext == "true" ? "SELECT * FROM cardstatement WHERE transno > $transno AND uid = $userid" : "SELECT * FROM cardstatement WHERE transno < $transno AND uid = $userid ORDER BY transno DESC";
     }
-}else{
+} else {
     $query = "SELECT * FROM cardstatement WHERE transno = $transno";
 }
 

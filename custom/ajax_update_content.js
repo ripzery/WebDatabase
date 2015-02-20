@@ -52,12 +52,12 @@ $(document).ready(function () {
     $("#card_stat").on("click", function () {
         $.get("menus/card_statement.php", function (data) {
             $('#page-wrapper').html(data);
-            
+
             //assign value to var
             userid = $('#userid').val();
             cardno = $('#cardno').val();
             transno = $('#transno').val();
-            
+
             // find max transaction number
             $.ajax({
                 url: "menus/logic/total_transaction.php",
@@ -66,7 +66,7 @@ $(document).ready(function () {
                     max = return_value;
                 }
             });
-            
+
             // fix card no incorrect value
             $.ajax({
                 type: "POST",
