@@ -14,7 +14,7 @@ $(document).ready(function () {
     $.ajax({
         type: "POST",
         async: false,
-        url: "menus/logic/admin_checker.php",
+        url: "menus/php_database/admin_checker.php",
         success: function (return_value) {
             if (return_value == "admin access") {
                 isAdmin = true;
@@ -60,7 +60,7 @@ $(document).ready(function () {
 
             // find max transaction number
             $.ajax({
-                url: "menus/logic/total_transaction.php",
+                url: "menus/php_database/total_transaction.php",
                 async: false,
                 success: function (return_value) {
                     max = return_value;
@@ -70,7 +70,7 @@ $(document).ready(function () {
             // fix card no incorrect value
             $.ajax({
                 type: "POST",
-                url: "menus/logic/card_statement_ajax.php",
+                url: "menus/php_database/card_statement_ajax.php",
                 async: false,
                 dataType: 'json',
                 data: {
@@ -87,7 +87,7 @@ $(document).ready(function () {
                 $.ajax({
                     type: "POST",
                     async: false,
-                    url: "menus/logic/card_statement_ajax.php",
+                    url: "menus/php_database/card_statement_ajax.php",
                     dataType: 'json',
                     data: {
                         transno: transno,
@@ -112,7 +112,7 @@ $(document).ready(function () {
                 $.ajax({
                     type: "POST",
                     async: false,
-                    url: "menus/logic/card_statement_ajax.php",
+                    url: "menus/php_database/card_statement_ajax.php",
                     dataType: 'json',
                     data: {
                         transno: transno,
@@ -157,7 +157,7 @@ $(document).ready(function () {
                     $.ajax({
                         type: "POST",
                         async: false,
-                        url: "menus/logic/insert.php",
+                        url: "menus/php_database/insert.php",
                         data: {'sellerno': $('#sellerno').val(), 'product': $('#product').val(), 'price': $('#price').val(), 'transno': $('#transno').val(), 'cardno': $('#cardno').val(), 'userid': $('#userid').val(), 'date': $('#date').val()},
                         success: function (return_value) {
                             setCardStateReadOnly(true);
@@ -170,7 +170,7 @@ $(document).ready(function () {
                     $.ajax({
                         type: "POST",
                         async: false,
-                        url: "menus/logic/savecard.php",
+                        url: "menus/php_database/savecard.php",
                         data: {'sellerno': $('#sellerno').val(), 'product': $('#product').val(), 'price': $('#price').val(), 'transno': $('#transno').val()},
                         success: function (return_value) {
                             setCardStateReadOnly(true);
@@ -188,7 +188,7 @@ $(document).ready(function () {
     $('#transaction').on('click', function () {
         $.ajax({
             async: false,
-            url: "menus/logic/transaction.php",
+            url: "menus/php_database/transaction.php",
             success: function (return_value) {
                 $.get("menus/listtransaction.php", function (data) {
                     $('#page-wrapper').html(data);
@@ -249,6 +249,6 @@ function showRSS(str) {
             document.getElementById("rssOutput").innerHTML = xmlhttp.responseText;
         }
     }
-    xmlhttp.open("GET", "menus/logic/getfeed.php?q=" + str, true);
+    xmlhttp.open("GET", "menus/php_database/getfeed.php?q=" + str, true);
     xmlhttp.send();
 }
