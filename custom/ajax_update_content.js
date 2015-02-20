@@ -96,7 +96,6 @@ $(document).ready(function () {
                     success: function (return_value) {
                         if (max === 0)
                             max = return_value.max;
-
                         $('#transno').val(return_value.transno);
                         $('#userid').val(return_value.uid);
                         $('#cardno').val(return_value.number);

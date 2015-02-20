@@ -26,8 +26,8 @@
         $transno = $isNext ? $transno + 1 : $transno - 1;
         $query = "SELECT * FROM cardstatement WHERE transno = $transno";
     }else{
-        $query = isNext ? "SELECT * FROM cardstatement WHERE transno > $transno AND uid = $userid" : "SELECT * FROM cardstatement WHERE transno < $transno AND uid = $userid";
-        echo $query;
+        
+        $query = $isNext == "true" ? "SELECT * FROM cardstatement WHERE transno > $transno AND uid = $userid" : "SELECT * FROM cardstatement WHERE transno < $transno AND uid = $userid ORDER BY transno DESC";
     }
 
     $result = mysqli_query($link, $query) or die("Data not found");
