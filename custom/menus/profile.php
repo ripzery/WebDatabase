@@ -30,6 +30,11 @@
     <!-- Address -->
     <div class="chat-panel panel panel-default">
         <!-- /.panel-heading -->
+        <div class="panel-heading">
+            <i class="fa fa-comments fa-fw"></i>
+            Information about <?php echo $no_row; ?> people.
+        </div>
+        
         <div class="panel-body">
             <ul class="chat">
 
@@ -40,7 +45,7 @@
 
                 <li class="left clearfix">
                     <span class="chat-img pull-left">
-                        <img src="http://placehold.it/50/55C1E7/fff" alt="User Avatar" class="img-circle" />
+                        <img src="../img/icon-user-default.png" width="96" height="96" style="margin-right: 16px;" alt="User Avatar" class="img-circle" />
                     </span>
 
                     <div class="chat-body clearfix">
@@ -73,6 +78,11 @@
                 </li>    
                 <?php }?>   
             </ul>
+        </div>
+        
+        <div class="panel-footer">
+            <i class="fa fa-child fa-fw"></i>
+            Credit card owner information
         </div>
 
         <!-- /.col-lg-12 -->

@@ -175,6 +175,9 @@ $(document).ready(function () {
     $("#search_news").on("click", function () {
         $.get("menus/search_news.php", function (data) {
             $('#page-wrapper').html(data);
+            $('#select_rss').on("change",function(data){
+               showRSS(this.value);
+            });
         });
     });
     
@@ -199,4 +202,24 @@ function setCardStateReadOnly(isReadOnly) {
         $('#product').val("");
         $('#price').val("");
     }
+}
+
+function showRSS(str){
+   if (str.length==0) { 
+    document.getElementById("rssOutput").innerHTML="";
+    return;
+  }
+  if (window.XMLHttpRequest) {
+    // code for IE7+, Firefox, Chrome, Opera, Safari
+    xmlhttp=new XMLHttpRequest();
+  } else {  // code for IE6, IE5
+    xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  }
+  xmlhttp.onreadystatechange=function() {
+    if (xmlhttp.readyState==4 && xmlhttp.status==200) {
+      document.getElementById("rssOutput").innerHTML=xmlhttp.responseText;
+    }
+  }
+  xmlhttp.open("GET","menus/logic/getfeed.php?q="+str,true);
+  xmlhttp.send(); 
 }
