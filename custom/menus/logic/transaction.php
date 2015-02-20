@@ -22,14 +22,6 @@ $transactions = $dom->createElement('transactions');
 $response->appendChild($transactions);
 
 while ($row = mysqli_fetch_array($result)) {
-//    $transaction = $transactions->addChild("$transaction");
-//    $transaction->addChild("transno");
-//    $transaction->addChild("uid");
-//    $transaction->addChild("date");
-//    $transaction->addChild("sellerno");
-//    $transaction->addChild("product");
-//    $transaction->addChild("price");
-//    $transaction->addChild("number");
     $transno = $dom->createElement('transno');
     $transnoText = $dom->createTextNode($row['transno']);
     $transno->appendChild($transnoText);
@@ -71,9 +63,10 @@ while ($row = mysqli_fetch_array($result)) {
 }
 
 $xmlString = $dom->saveXML();
+$dom->save("../../xml/transactions.xml");
 
 $xmlString = ltrim(substr($xmlString, strpos($xmlString, '?'.'>')+2)); // removing <?xml
-
+$dom->formatOutput = true;
 echo $xmlString;
 
 

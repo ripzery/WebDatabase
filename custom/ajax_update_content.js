@@ -157,6 +157,19 @@ $(document).ready(function () {
 
         });
     });
+    
+    $('#transaction').on('click',function(){
+       $.ajax({
+         async: false,
+         url: "menus/logic/transaction.php",
+         success: function (return_value){
+             $.get("menus/listtransaction.php", function(data){
+                    $('#page-wrapper').html(data);
+             });
+         }
+        
+       });
+    });
 
     // If Search News is clicked then load search_news.php into the content section
     $("#search_news").on("click", function () {

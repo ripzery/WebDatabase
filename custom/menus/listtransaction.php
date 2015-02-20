@@ -1,7 +1,7 @@
 <?php
 
-    $xml = simplexml_load_file($filename)
-
+    $xmlObject = simplexml_load_file("../xml/transactions.xml");
+        
 ?>
 <div class="row">
     <div class="col-lg-12">
@@ -27,23 +27,24 @@
                                 <th>Date</th>
                                 <th>Seller No.</th>
                                 <th>Product</th>
+                                <th>Price</th>
                                 <th>Credit Card No.</th>
                             </tr>
                         </thead>
                         <tbody>
                              <?php
-                                while($row = mysqli_fetch_array($result)){
+                                foreach ($xmlObject->transactions->transaction AS $transaction) {
                             ?>
                             <tr>
-                                <td><?php echo $row['name'];?></td>
-                                <td><?php echo $row['number'];?></td>
-                                <td><?php echo $row['issuer'];?></td>
-                                <td><?php echo $row['exp'];?></td>
-                                <td><?php echo $row['limit'];?></td>
-                                <td><?php echo $row['currency'];?></td>
+                                <td><?php echo $transaction->transno;?></td>
+                                <td><?php echo $transaction->uid;?></td>
+                                <td><?php echo $transaction->date;?></td>
+                                <td><?php echo $transaction->sellerno;?></td>
+                                <td><?php echo $transaction->product;?></td>
+                                <td><?php echo $transaction->price;?></td>
+                                <td><?php echo $transaction->number;?></td>
                             </tr>
                             <?php } ?>
-
                         </tbody>
                     </table>
                 </div>
