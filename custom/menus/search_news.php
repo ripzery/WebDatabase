@@ -21,7 +21,6 @@
                             <option value>Select an RSS-feed:</option>
                             <option value = "DailyNews">DailyNews - Popular News</option>
                             <option value = "Sanook">Sanook Football News</option>
-                            <option value = "Blognone">Blognone IT News</option>
                             <option value = "Android">Android Central</option>
 
                         </select>

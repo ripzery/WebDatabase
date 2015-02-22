@@ -203,7 +203,7 @@ $(document).ready(function () {
         $.get("menus/search_news.php", function (data) {
             $('#page-wrapper').html(data);
             $('#select_rss').on("change", function (data) {
-                showRSS(this.value);
+                getFeed(this.value);
             });
         });
     });
@@ -233,9 +233,9 @@ function setCardStateReadOnly(isReadOnly) {
     }
 }
 
-function showRSS(str) {
+function getFeed(str) {
     if (str.length == 0) {
-        document.getElementById("rssOutput").innerHTML = "";
+        $('#rssOutput').innerHTML = "";
         return;
     }
     if (window.XMLHttpRequest) {

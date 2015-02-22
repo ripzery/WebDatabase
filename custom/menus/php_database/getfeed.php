@@ -6,8 +6,6 @@ $q = $_GET["q"];
 //find out which feed was selected
 if ($q == "Sanook") {
     $xml = ("http://rssfeeds.sanook.com/rss/feeds/sanook/sport.football.xml");
-} elseif ($q == "Blognone") {
-    $xml = ("https://www.blognone.com/atom.xml");
 } elseif ($q == "Android") {
     $xml = ("http://feeds.feedburner.com/androidcentral?format=xml");
 } elseif ($q == "DailyNews") {
@@ -16,7 +14,6 @@ if ($q == "Sanook") {
 
 $xmlDoc = new DOMDocument();
 $xmlDoc->load($xml);
-
 //get elements from "<channel>"
 $channel = $xmlDoc->getElementsByTagName('channel')->item(0);
 $channel_title = $channel->getElementsByTagName('title')
